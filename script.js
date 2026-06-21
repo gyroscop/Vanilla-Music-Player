@@ -112,21 +112,45 @@ allSongs.forEach((song) => {
 	}
 });
 
-showSongs(allSongs);
+renderCurrentSong(allSongs);
 
 genreSelect.addEventListener("change", (e) => {
 	if (e.target.value.toLowerCase() == "pop") {
-		showSongs(popSongs);
+		renderCurrentSong(popSongs);
 	} else if (e.target.value.toLowerCase() == "rock") {
-		showSongs(rockSongs);
+		renderCurrentSong(rockSongs);
 	} else if (e.target.value.toLowerCase() == "jazz") {
-		showSongs(jazzSongs);
+		renderCurrentSong(jazzSongs);
 	} else if (e.target.value.toLowerCase() == "hip-hop") {
-		showSongs(hiphopSongs);
+		renderCurrentSong(hiphopSongs);
 	} else {
-		showSongs(allSongs);
+		renderCurrentSong(allSongs);
 	}
 });
+
+// For the Song Card section, the currently selected song should be displayed with its image, song name, and artist name.
+const coverImage = document.querySelector(".cover-image");
+const coverFrame = document.querySelector(".cover-frame");
+const trackTitle = document.querySelector(".track-title");
+const trackArtist = document.querySelector(".track-artist");
+
+function renderCurrentSong(genre) {
+	showSongs(genre);
+
+	genre.forEach((song) => {
+		let currentSong = document.getElementById(
+			song.name.toLowerCase().replaceAll(" ", ""),
+		);
+		// console.log(currentSong);
+
+		currentSong.addEventListener("click", () => {
+			coverImage.innerHTML = song.source;
+			trackTitle.innerText = song.name;
+			trackArtist.innerText = song.artist;
+		});
+	});
+}
+//functions
 
 function showSongs(genre) {
 	songList.innerHTML = "";
