@@ -117,9 +117,15 @@ showSongs(allSongs);
 genreSelect.addEventListener("change", (e) => {
 	if (e.target.value.toLowerCase() == "pop") {
 		showSongs(popSongs);
-	}else if (){
-        
-    }
+	} else if (e.target.value.toLowerCase() == "rock") {
+		showSongs(rockSongs);
+	} else if (e.target.value.toLowerCase() == "jazz") {
+		showSongs(jazzSongs);
+	} else if (e.target.value.toLowerCase() == "hip-hop") {
+		showSongs(hiphopSongs);
+	} else {
+		showSongs(allSongs);
+	}
 });
 
 function showSongs(genre) {
