@@ -54,9 +54,15 @@
 							<div class="media-bar"></div>
 						</div> -->
 						<div class="player-controls">
-							<button type="button" class="control-btn">Prev</button>
-							<button type="button" class="control-btn play-btn">Play</button>
-							<button type="button" class="control-btn">Next</button>
+							<button type="button" class="control-btn" id="prevBtn">
+								Prev
+							</button>
+							<button type="button" class="control-btn play-btn" id="playBtn">
+								Play
+							</button>
+							<button type="button" class="control-btn" id="nextBtn">
+								Next
+							</button>
 						</div>
 						<button type="button" class="playlist-btn">Add to Playlist</button>
 					</div>
@@ -66,10 +72,13 @@
 					<div class="playlist-top">
 						<input
 							type="text"
+							id="playlistNameInput"
 							placeholder="Enter playlist name"
 							aria-label="Playlist name"
 						/>
-						<button type="button">Create Playlist</button>
+						<button type="button" id="createPlaylistBtn">
+							Create Playlist
+						</button>
 					</div>
 					<div class="playlist-content">
 						<h2>Current Playlist</h2>
@@ -78,13 +87,35 @@
 						</div>
 						<h2>All Playlists</h2>
 						<div class="playlist-list">
-							<button type="button">Chill Vibes</button>
-							<button type="button">Workout</button>
-							<button type="button">Favorites</button>
+							<button type="button" data-playlist="chill-vibes">
+								Chill Vibes
+							</button>
+							<button type="button" data-playlist="workout">Workout</button>
+							<button type="button" data-playlist="favorites">Favorites</button>
 						</div>
 					</div>
 				</section>
 			</main>
+
+			<div class="playlist-modal hidden" id="playlistModal">
+				<div class="playlist-modal__overlay"></div>
+				<div class="playlist-modal__panel">
+					<div class="playlist-modal__header">
+						<h3>Select a playlist</h3>
+						<button
+							type="button"
+							class="modal-close"
+							aria-label="Close playlist picker"
+						>
+							×
+						</button>
+					</div>
+					<div class="playlist-options"></div>
+					<p class="playlist-message">
+						Choose a playlist to add the current song.
+					</p>
+				</div>
+			</div>
 		</div>
 		<script src="theme-toggle.js"></script>
 		<script src="script.js"></script>
